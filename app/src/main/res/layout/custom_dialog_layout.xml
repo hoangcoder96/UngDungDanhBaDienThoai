@@ -6,11 +6,12 @@
     android:orientation="vertical"
     android:padding="@dimen/padding_8dp">
 
-    <TextView
+<TextView
+        android:textColor="@color/XanhLa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/do_you_want_to_call_or_message"
+        android:text="@string/call_or_message"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -21,22 +22,30 @@
         android:orientation="horizontal">
 
         <Button
-            android:textStyle="bold"
             android:id="@+id/btn_call"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_8dp"
             android:layout_weight="1"
+            android:background="@color/XanhLa"
+            android:drawableLeft="@drawable/phone"
+            android:paddingLeft="10dp"
             android:text="@string/call"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
 
         <Button
-            android:textStyle="bold"
             android:id="@+id/btn_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/XanhLa"
+            android:drawableLeft="@drawable/email"
+            android:paddingLeft="10dp"
             android:text="@string/send_message"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
+
     </LinearLayout>
 
 </LinearLayout>

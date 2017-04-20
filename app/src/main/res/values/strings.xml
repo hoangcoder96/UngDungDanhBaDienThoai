@@ -6,7 +6,12 @@
     <string name="male">Male</string>
     <string name="felmale">Felmale</string>
     <string name="add_contact">Add contact</string>
-    <string name="send_message">Send Message</string>
-    <string name="do_you_want_to_call_or_message">Do you want to Call or Message?</string>
+    <string name="send_message">Message</string>
+    <string name="call_or_message">Do you want to Call or Message?</string>
     <string name="call">Call</string>
+    <string name="xoa">Xóa</string>
+    <string name="gui">Gửi</string>
+    <string name="chinh_sua">Chỉnh sửa</string>
+    <string name="chi_tiet_lien_he">Chi tiết liên hệ</string>
+    <string name="name">Hoang Nhat</string>
 </resources>

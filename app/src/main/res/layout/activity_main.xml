@@ -52,17 +52,17 @@
     </RadioGroup>
 
     <Button
-        android:onClick="addContact"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
         android:id="@+id/btn_add_contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/colorPrimary"
+        android:onClick="addContact"
         android:padding="@dimen/padding_8dp"
         android:text="@string/add_contact"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@color/white"/>
 
     <ListView
         android:id="@+id/lv_contact"
