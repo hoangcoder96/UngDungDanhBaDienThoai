@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -34,37 +35,44 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rbtnFelmale;
     private Button btnAddContact;
     private ListView lvContact;
+    private ImageButton imgbtnCallPhone;
+    private ImageButton imgbtnCreateNewContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setWidget();
+
         arrContact = new ArrayList<>();
         adapter = new ContactAdapter(this, R.layout.item_contact_listview, arrContact);
         lvContact.setAdapter(adapter);
+
         checkAndRequestPermissions();
+
         lvContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 showDialogConfirm(position);
             }
         });
+
     }
 
-    private void checkAndRequestPermissions(){
-        String[] permissions  = new String[]{
+    private void checkAndRequestPermissions() {
+        String[] permissions = new String[]{
                 android.Manifest.permission.CALL_PHONE,
                 android.Manifest.permission.SEND_SMS
         };
-        List<String>ListPermissionsNeeded = new ArrayList<>();
-        for (String permission : permissions){
-            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
+        List<String> ListPermissionsNeeded = new ArrayList<>();
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 ListPermissionsNeeded.add(permission);
             }
         }
-        if (!ListPermissionsNeeded.isEmpty()){
-            ActivityCompat.requestPermissions(this,ListPermissionsNeeded.toArray(new String[ListPermissionsNeeded.size()]),1);
+        if (!ListPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, ListPermissionsNeeded.toArray(new String[ListPermissionsNeeded.size()]), 1);
         }
     }
 
@@ -75,6 +83,17 @@ public class MainActivity extends AppCompatActivity {
         rbtnFelmale = (RadioButton) findViewById(R.id.rbtn_felmale);
         btnAddContact = (Button) findViewById(R.id.btn_add_contact);
         lvContact = (ListView) findViewById(R.id.lv_contact);
+
+        imgbtnCallPhone = (ImageButton) findViewById(R.id.img_btn_call_phone);
+        imgbtnCreateNewContact = (ImageButton) findViewById(R.id.img_btn_create_new_contact);
+
+        imgbtnCreateNewContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,CreateNewContact.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void addContact(View view) {
@@ -127,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void intentMessage(int position) {
-        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("sms:" + arrContact.get(position).getmNumber()));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + arrContact.get(position).getmNumber()));
         startActivity(intent);
     }
 }

@@ -1,71 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:maxLength="20"
-        android:id="@+id/edt_name"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="@string/input_name" />
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
-    <EditText
-        android:maxLength="11"
-        android:inputType="number"
-        android:id="@+id/edt_number"
+        <ListView
+            android:id="@+id/lv_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="@string/input_number" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/gender"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/Xam"
+        android:gravity="center"
         android:orientation="horizontal">
 
-        <RadioButton
-            android:checked="true"
-            android:id="@+id/rbtn_male"
+        <ImageButton
+            android:id="@+id/img_btn_call_phone"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/male" />
+            android:layout_gravity="center"
+            android:src="@drawable/phonetalk"/>
 
-        <RadioButton
-            android:id="@+id/rbtn_felmale"
+        <ImageButton
+            android:id="@+id/img_btn_create_new_contact"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/felmale" />
-    </RadioGroup>
+            android:layout_gravity="center"
+            android:src="@drawable/create_contact"/>
 
-    <Button
-        android:id="@+id/btn_add_contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:background="@color/colorPrimary"
-        android:onClick="addContact"
-        android:padding="@dimen/padding_8dp"
-        android:text="@string/add_contact"
-        android:textAllCaps="false"
-        android:textColor="@color/white"/>
-
-    <ListView
-        android:id="@+id/lv_contact"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        <ImageButton
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/dot_shorizontal"/>
+    </LinearLayout>
+</RelativeLayout>
